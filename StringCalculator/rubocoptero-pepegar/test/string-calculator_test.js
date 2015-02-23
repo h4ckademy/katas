@@ -29,6 +29,10 @@ describe('stringCalculator', function () {
           stringCalculator.add(key).should.equal(fixtures[key]);
         }
       });
+
+      it('works with "\\n" as a separator', function() {
+        stringCalculator.add('1\n2').should.equal(3);
+      });
     });
   });
 });
