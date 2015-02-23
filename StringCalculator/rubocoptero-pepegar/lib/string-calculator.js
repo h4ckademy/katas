@@ -13,9 +13,7 @@ function toInt(item) {
 }
 
 function isNegative (number) {
-  if (number < 0) {
-    throw new Error('negatives not allowed: ' + number);
-  }
+  return number < 0;
 }
 
 var InputObject = function(rawInput) {
@@ -27,6 +25,10 @@ var InputObject = function(rawInput) {
 };
 
 InputObject.prototype.assertNotNegativeOperands = function () {
+  var negatives = this.operands.filter(isNegative);
+  if (negatives.length > 0) {
+    throw new Error('negatives not allowed: ' + negatives.join(','));
+  }
   this.operands.forEach(isNegative);
 };
 
