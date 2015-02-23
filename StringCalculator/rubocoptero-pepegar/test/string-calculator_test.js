@@ -1,7 +1,8 @@
 'use strict';
 
+require('should');
+
 var stringCalculator = require('../');
-var assert = require('should');
 
 describe('stringCalculator', function () {
   describe('add', function () {
@@ -15,10 +16,18 @@ describe('stringCalculator', function () {
             output = 789;
         stringCalculator.add(input).should.equal(output);
       });
+    });
 
+    describe('with two operands', function () {
       it('should return the sum of two numbers if a string containing two numbers is given', function() {
         var input = "4,6",
             output = 10;
+        stringCalculator.add(input).should.equal(output);
+      });
+
+      it('should return return the sum of other two numbers if a string containing two number is given', function () {
+        var input = "8,6",
+            output = 14;
         stringCalculator.add(input).should.equal(output);
       });
     });
