@@ -18,17 +18,16 @@ describe('stringCalculator', function () {
       });
     });
 
-    describe('with two operands', function () {
-      it('should return the sum of two numbers if a string containing two numbers is given', function() {
-        var input = "4,6",
-            output = 10;
-        stringCalculator.add(input).should.equal(output);
-      });
+    describe('with two or more operands', function () {
+      it('should return the sum of them', function() {
+        var fixtures = {
+          "4,6": 10,
+          "1,2,3,4,5": 15,
+        };
 
-      it('should return return the sum of other two numbers if a string containing two number is given', function () {
-        var input = "8,6",
-            output = 14;
-        stringCalculator.add(input).should.equal(output);
+        for (var key in fixtures) {
+          stringCalculator.add(key).should.equal(fixtures[key]);
+        }
       });
     });
   });

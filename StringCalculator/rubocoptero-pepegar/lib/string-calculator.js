@@ -1,17 +1,20 @@
 'use strict';
 
-function hasTwoOperands (operands) {
-  return operands.indexOf(',') !== -1;
+function isInt(candidate) {
+  return parseInt(candidate).toString() === candidate;
+}
+
+function sum(a, b) {
+  return a + b;
+}
+
+function toInt(item) {
+  return parseInt(item, 10);
 }
 
 module.exports.add = function (operands) {
-  var result = 0;
-  if (operands !== '') {
-    if (hasTwoOperands(operands)) {
-      result = 10;
-    } else {
-      result = parseInt(operands);
-    }
-  }
-  return result;
+  return operands.split(/,/)
+      .filter(isInt)
+      .map(toInt)
+      .reduce(sum, 0);
 };
