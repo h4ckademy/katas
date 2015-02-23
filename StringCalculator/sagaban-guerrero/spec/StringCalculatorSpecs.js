@@ -10,4 +10,10 @@ describe("Receive string with numbers", function () {
   		expect(Add('2')).toEqual(2);
   	});
   });
+
+  describe("Receive two numbers and return the sum of them", function() {
+  	it("Add('1,2') should return 3", function() {
+  		expect(Add('1,2')).toEqual(3);
+  	});
+  });
 });
