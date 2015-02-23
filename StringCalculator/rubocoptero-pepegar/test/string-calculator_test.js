@@ -2,7 +2,8 @@
 
 require('should');
 
-var stringCalculator = require('../');
+var stringCalculator = require('../'),
+    assert = require('assert');
 
 describe('stringCalculator', function () {
   describe('add', function () {
@@ -39,6 +40,12 @@ describe('stringCalculator', function () {
           stringCalculator.add('//;\n1;2').should.equal(3);
         });
       });
+    });
+
+    it('should throw an exception given a negative number', function() {
+      assert.throws(function() {
+        stringCalculator.add('1,-2');
+      }, /negatives not allowed: -2/);
     });
   });
 });
