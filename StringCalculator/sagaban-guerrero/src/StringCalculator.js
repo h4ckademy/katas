@@ -7,26 +7,24 @@ var Add = function(operands) {
   if (operands == "") {
     result = 0;
   } else {
-    result = sumArray(operands);
+    result = sumOperandsFromString(operands);
   }
 
-  function sumArray(string) {
-    var numbers = string.split(",");
-
-    var sum = sumArrayOfStrings(numbers);
-
-    return parseInt(sum);
-  }
-
-  function sumArrayOfStrings(arr) {
-    var result = arr.reduce(function(previousVal, currentVal) {
+  function sumOperandsFromString(string) {
+    var operandsArray = convertStringToArray(string);
+    var result = operandsArray.reduce(function(previousVal, currentVal) {
       return parseInt(previousVal) + parseInt(currentVal);
     });
 
-    return result;
+    return parseInt(result);
   }
 
-  function returnInt(element) {
+  function convertStringToArray(string) {
+    var arr = string.split(",");
+    return arr;
+  }
+
+  function toInt(element) {
     return parseInt(element, 10);
   }
 
