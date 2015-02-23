@@ -1,0 +1,39 @@
+{
+  "name": "string-calculator",
+  "description": "String calculator Kata",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pepegar/string-calculator",
+  "bugs": "https://github.com/pepegar/string-calculator/issues",
+  "license": "MIT",
+  "main": "lib/string-calculator.js",
+  "author": {
+    "name": "Pepe",
+    "email": "jl@garhdez.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pepegar/string-calculator"
+  },
+  "keywords":[],
+  "dependencies": {
+    "lodash": "latest",
+    "q": "1.2.0",
+    "debug": "latest"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-util": "^3.0.1",
+    "gulp-bump": "^0.1.11",
+    "gulp-jscs": "^1.1.2",
+    "gulp-jshint": "^1.8.4",
+    "gulp-mocha": "^1.1.0",
+    "gulp-istanbul": "^0.5.0",
+    "should": "^4.0.4",
+    "jshint-stylish": "^0.4.0",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-plumber": "^0.6.5"
+  },
+  "scripts": {
+    "test": "gulp test"
+  }
+}
