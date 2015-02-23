@@ -11,8 +11,15 @@ describe('stringCalculator', function () {
 
     describe('with a operand', function () {
       it('should return the operand', function () {
-        var result = 789;
-        stringCalculator.add(result).should.equal(result);
+        var input = '789',
+            output = 789;
+        stringCalculator.add(input).should.equal(output);
+      });
+
+      it('should return the sum of two numbers if a string containing two numbers is given', function() {
+        var input = "4,6",
+            output = 10;
+        stringCalculator.add(input).should.equal(output);
       });
     });
   });
