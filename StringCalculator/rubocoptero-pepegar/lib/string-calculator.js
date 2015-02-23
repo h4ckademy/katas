@@ -1,7 +1,7 @@
 'use strict';
 
 function isInt(candidate) {
-  return parseInt(candidate).toString() === candidate;
+  return parseInt(candidate, 10).toString() === candidate;
 }
 
 function sum(a, b) {
@@ -12,14 +12,25 @@ function toInt(item) {
   return parseInt(item, 10);
 }
 
+function isNegative (number) {
+  if (number < 0) {
+    throw new Error('negatives not allowed: ' + number);
+  }
+}
+
 var InputObject = function(rawInput) {
   this.rawInput = rawInput;
 
-  this.generateSeparator();
-  this.generateOperands();
+  this.setSeparator();
+  this.setOperands();
+  this.assertNotNegativeOperands();
 };
 
-InputObject.prototype.generateOperands = function() {
+InputObject.prototype.assertNotNegativeOperands = function () {
+  this.operands.forEach(isNegative);
+};
+
+InputObject.prototype.setOperands = function() {
   if (this.containsDelimiter()) {
     this.operands = this.rawInput.substr(4).split(this.separator);
   } else {
@@ -27,7 +38,7 @@ InputObject.prototype.generateOperands = function() {
   }
 };
 
-InputObject.prototype.generateSeparator = function() {
+InputObject.prototype.setSeparator = function() {
   var separator = '';
   if (this.containsDelimiter()) {
     separator = this.rawInput.charAt(2);
@@ -39,7 +50,7 @@ InputObject.prototype.generateSeparator = function() {
 
 InputObject.prototype.containsDelimiter = function() {
   return this.rawInput.indexOf('//') !== -1;
-}
+};
 
 module.exports.add = function (rawInput) {
   var validInput = new InputObject(rawInput);

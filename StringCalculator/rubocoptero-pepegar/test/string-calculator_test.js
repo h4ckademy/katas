@@ -42,10 +42,32 @@ describe('stringCalculator', function () {
       });
     });
 
-    it('should throw an exception given a negative number', function() {
-      assert.throws(function() {
-        stringCalculator.add('1,-2');
-      }, /negatives not allowed: -2/);
+    describe('given negative numbers', function () {
+      it('should throw an exception', function () {
+        assert.throws(
+          function() {
+            stringCalculator.add('1,-2');
+          }
+        );
+      });
+
+      it('should throw an exception with the "negatives not allowed:" message and the negative number', function() {
+        assert.throws(
+          function() {
+            stringCalculator.add('1,-2');
+          },
+          /negatives not allowed: -2/
+        );
+      });
+
+      it('should throw an exception with the message and all the negative numbers separated by commas', function () {
+        assert.throws(
+          function() {
+            stringCalculator.add('-1,-2');
+          },
+          /negatives not allowed: -1,-2/
+        );
+      });
     });
   });
 });
