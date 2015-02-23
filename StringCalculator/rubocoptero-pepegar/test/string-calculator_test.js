@@ -33,6 +33,12 @@ describe('stringCalculator', function () {
       it('works with "\\n" as a separator', function() {
         stringCalculator.add('1\n2').should.equal(3);
       });
+
+      describe('with ";" as delimiter', function () {
+        it('should returns 3 for “//;\n1;2”', function () {
+          stringCalculator.add('//;\n1;2').should.equal(3);
+        });
+      });
     });
   });
 });

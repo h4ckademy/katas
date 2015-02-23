@@ -13,7 +13,7 @@ function toInt(item) {
 }
 
 module.exports.add = function (operands) {
-  return operands.split(/,/)
+  return operands.split(/,|\n/)
       .filter(isInt)
       .map(toInt)
       .reduce(sum, 0);
