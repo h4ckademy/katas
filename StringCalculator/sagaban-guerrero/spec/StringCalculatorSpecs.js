@@ -16,4 +16,10 @@ describe("Receive string with numbers", function () {
   		expect(Add('1,2')).toEqual(3);
   	});
   });
+
+  describe("Allow the Add method to handle an unknown amount of numbers", function() {
+  	it("Add('4,2,6,11') should return 23", function() {
+  		expect(Add('4,2,6,11')).toEqual(23);
+  	});
+  });
 });
