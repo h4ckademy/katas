@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function() {
-
+module.exports.convert = function(number) {
+  return 'I';
 };
