@@ -35,6 +35,10 @@ describe('stringCalculator', function () {
         stringCalculator.add('1\n2').should.equal(3);
       });
 
+      it('works with "\n" and "," as separators', function() {
+        stringCalculator.add('1\n2;3').should.equal(6);
+      });
+
       describe('with ";" as delimiter', function () {
         it('should return 3 for "\/\/;\n1;2"', function () {
           stringCalculator.add('//;\n1;2').should.equal(3);
