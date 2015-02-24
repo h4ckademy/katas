@@ -18,7 +18,12 @@ describe('Roman numerals', function () {
     [50, 'L'],
     [100, 'C'],
     [500, 'D'],
-    [1000, 'M']
+    [1000, 'M'],
+    [2, 'II'],
+    [20, 'XX'],
+    [200, 'CC'],
+    [3000, 'MMM'],
+    [4, 'IV']
         ].forEach(function(pair){
           it('returns "'+ pair[1] + '" for ' + pair[0],
              convertsTo(pair[0], pair[1]));
