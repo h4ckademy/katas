@@ -3,5 +3,9 @@
 var romannumerals = require('../');
 var assert = require('should');
 
-describe('romannumerals', function () {
+describe('Roman numerals', function () {
+  it('should return "I" for 1', function () {
+    romannumerals.convert(1).should.equal('I');
+  });
+
 });
