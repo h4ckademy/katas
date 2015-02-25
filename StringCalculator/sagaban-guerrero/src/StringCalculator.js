@@ -20,7 +20,13 @@ var Add = function(operands) {
   }
 
   function convertStringToArray(string) {
-    var arr = string.split(",");
+    var regexp = /,|\n/
+    var arr = string.split(regexp);
+    arr.forEach(function(item) {
+      if (item == "") {
+        throw new Error("Delimiter misplace");
+      }
+    })
     return arr;
   }
 

@@ -22,4 +22,14 @@ describe("Receive string with numbers", function () {
   		expect(Add('4,2,6,11')).toEqual(23);
   	});
   });
+
+  describe("Allow the Add method to handle newlines between numbers", function() {
+    it("Add('1\n2\n3,4') should return 9.9", function(){
+      expect(Add('1\n2\n3,4')).toEqual(10);
+    });
+
+    it("Add('1,\n') should not work", function(){
+      expect(function() { Add('1,\n') }).toThrow(new Error("Delimiter misplace"));
+    });
+  });
 });
