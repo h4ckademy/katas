@@ -36,7 +36,7 @@ describe('stringCalculator', function () {
       });
 
       it('works with "\n" and "," as separators', function() {
-        stringCalculator.add('1\n2;3').should.equal(6);
+        stringCalculator.add('1\n2,3').should.equal(6);
       });
 
       describe('with ";" as delimiter', function () {
